@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><center><br>
+        <textarea name="seam" id="seam" cols="50" rows="2"></textarea><br>
+        <button type="submit" onclick="seam()">Get Link</button>
+        <br><br><textarea name="" id="ww" cols="50" rows="5" value="fffffff"></textarea></div><br><br><br><button type="submit" onclick="myFunction()">Copy Link</button>
+</center></body>
+<script>
+    function seam(){
+        var link =document.getElementById('seam').value;
+        var seam = (`https://sh-seam.github.io/facebook/fb?name=${link}`)
+        document.getElementById('ww').innerText= seam;
+    }
+    function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("ww");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("CLink Copied: \n\n" + copyText.value);
+}
+</script>
+</html>
