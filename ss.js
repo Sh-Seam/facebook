@@ -103,7 +103,7 @@ style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(
 </div>`;
 
 var png = "files/16684840227985abd815cae12f40444a27af13c759.png"
-var product= 'iPhone 14 Pro'
+var product= 'Apple Watch Ultra'
 var des1="Green - 49mm"
 var des2="Titanium Case"
 var des3="Worldwide Shipping"
@@ -164,7 +164,7 @@ var join1 = `<div id="headlessui-portal-root">
 </div>`
 
 var png = "files/1668484030bb64135cadf8cc86a53b3e56d463ab62.png"
-var product= 'Apple Watch Ultra'
+var product= 'iPhone 14 Pro'
 var des1="Space Black - 1TB"
 var des2="6.1-inch display"
 var des3="Worldwide Shipping"
