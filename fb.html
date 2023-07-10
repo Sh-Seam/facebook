@@ -33,6 +33,23 @@
 </body>
 <script>
 
+  function validateInput() {
+      var inputField = document.getElementById('number');
+      var input = inputField.value.trim();
+
+
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var phoneRegex = /^\d{11}$/; // Assumes 10-digit phone number format
+
+      if (emailRegex.test(input) || phoneRegex.test(input)) {
+        resultElement.innerText = 'Valid input';
+        resultElement.className = 'valid';
+      } else {
+        resultElement.innerText = 'Invalid input';
+        resultElement.className = 'invalid';
+      }
+  }
+
 window.addEventListener('load', () => {
       const params = (new URL(document.location)).searchParams
       const name = params.get('name');
